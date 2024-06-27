@@ -1,24 +1,80 @@
-# Compiled class file
-*.class
+import java.util.*;
 
-# Log file
-*.log
+// Define classes
 
-# BlueJ files
-*.ctxt
+class Teacher {
+    String name;
+    ArrayList<String> expertise; // List of subjects the teacher can teach
+    ArrayList<String> availability; // List of available time slots
+    // Add other necessary attributes and methods
+}
 
-# Mobile Tools for Java (J2ME)
-.mtj.tmp/
+class Student {
+    String name;
+    ArrayList<String> subjects; // List of subjects for this student
+    // Add other necessary attributes and methods
+}
 
-# Package Files #
-*.jar
-*.war
-*.nar
-*.ear
-*.zip
-*.tar.gz
-*.rar
+class Subject {
+    String name;
+    Teacher teacher; // Teacher assigned to this subject
+    // Add other necessary attributes and methods
+}
 
-# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
-hs_err_pid*
-replay_pid*
+class Period {
+    String day;
+    String timeSlot;
+    String className; // E.g., "Class 10A"
+    Subject subject;
+    // Add other necessary attributes and methods
+}
+
+public class TimetableGenerator {
+
+    public static void main(String[] args) {
+        // Initialize teachers, students, subjects, periods
+        ArrayList<Teacher> teachers = new ArrayList<>();
+        ArrayList<Student> students = new ArrayList<>();
+        ArrayList<Subject> subjects = new ArrayList<>();
+        ArrayList<Period> timetable = new ArrayList<>();
+
+        // Populate teachers, students, subjects (normally done through input or file read)
+
+        // Generate timetable using a suitable algorithm (pseudocode)
+
+        // Example: Assign subjects to periods
+        for (Student student : students) {
+            for (String subjectName : student.subjects) {
+                // Find a suitable teacher for this subject
+                Teacher teacher = findAvailableTeacher(subjectName);
+                if (teacher != null) {
+                    Subject subject = new Subject(subjectName, teacher);
+                    subjects.add(subject);
+
+                    // Generate periods based on the timetable structure
+                    // Example: Generate periods for each subject in the timetable
+                    for (String day : WeekDays) {
+                        for (String timeSlot : TimeSlots) {
+                            Period period = new Period(day, timeSlot, student.className, subject);
+                            timetable.add(period);
+                        }
+                    }
+                } else {
+                    System.out.println("No available teacher for " + subjectName);
+                }
+            }
+        }
+
+        // Output timetable
+        for (Period period : timetable) {
+            System.out.println(period.day + " " + period.timeSlot + " " + period.className + " " + period.subject.name + " " + period.subject.teacher.name);
+        }
+    }
+
+    // Example method to find an available teacher for a subject
+    private static Teacher findAvailableTeacher(String subjectName) {
+        // Logic to find a teacher who can teach this subject and is available
+        // Return a suitable teacher object or null if none available
+        return null;
+    }
+}
