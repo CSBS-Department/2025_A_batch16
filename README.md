@@ -1,5 +1,5 @@
 # 2025_A_batch16
-ABSTRACT
+ABSTRACT:
 This project addresses the challenge of time-consuming and complex manual
 timetable generation in educational institutions. We propose an innovative, automated
 solution that leverages a combination of algorithmic approaches, including genetic
@@ -15,7 +15,7 @@ Rigorous testing procedures validate the system's ability not only to meet all i
 constraints but also to significantly enhance overall optimization. As a result, this project
 proposes a reliable and efficacious solution for tackling the complexities of timetable
 scheduling in educational settings.
-OVERVIEW
+OVERVIEW:
 Scheduling in educational institutions is a quintessential NP-hard problem,
 characterized by its exponential growth in complexity as the number of variables
 (courses, teachers, students) increases. This intricate nature stems from the need to satisfy
